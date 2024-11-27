@@ -1,0 +1,23 @@
+.mid{
+    background-color: white;
+    padding: 15px 32px;
+    border: blue ;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    text-align: center;
+    height: 150px;
+    width: 300px;
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-top: 165px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    border: solid 5px ;
+    flex-wrap: nowrap;
+}
+
