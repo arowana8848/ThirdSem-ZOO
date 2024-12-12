@@ -4,7 +4,10 @@ login.addEventListener('click',() => {
     // window.location.href = "dashboard.html";
     if (email.value === "admin" && pass.value === "admin"){
         alert("Login successful!");
-        window.location.href = "dashboard.html"
+        window.location.href = "dashboard.html";
+    }
+    else {
+        alert("Login failed. Please check your credentials.");
     }
     } );
     /**
