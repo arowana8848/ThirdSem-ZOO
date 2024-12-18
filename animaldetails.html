@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoo Management Dashboard</title>
+  <link rel="stylesheet" href="details.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Zoo Management System </h1>
+  </header>
+
+  <div class="container">
+    <nav class="sidebar">
+      <ul>
+        <li><button class="toggle-btn" onclick="toggleSection('animal-details', this)">Animal Details</button></li>
+        <li><button class="toggle-btn" onclick="toggleSection('feeding-schedule', this)">Feeding Schedule</button></li>
+        <li><button class="toggle-btn" onclick="toggleSection('visitor-ticketing', this)">Visitor Ticketing</button></li>
+        <li><button class="toggle-btn" onclick="toggleSection('petting-area', this)">Petting/Riding Area</button></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <section id="animal-details" class="hidden">
+        <h2>Animal Details</h2>
+        <form id="add-animal-form">
+          <input type="text" id="animal-name" placeholder="Animal Name" required>
+          <input type="text" id="cage-number" placeholder="Cage Number" required>
+          <input type="text" id="animal-species" placeholder="Species" required>
+          <button type="submit">Add Animal</button>
+        </form>
+
+        <table id="animal-table">
+          <thead>
+            <tr>
+              <th>Animal Name</th>
+              <th>Cage Number</th>
+              <th>Species</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Animal data will be dynamically added here -->
+          </tbody>
+        </table>
+      </section>
+
+      <section id="feeding-schedule" class="hidden">
+        <h2>Feeding Schedule</h2>
+        <p>Track feeding times and schedules for animals.</p>
+      </section>
+
+      <section id="visitor-ticketing" class="hidden">
+        <h2>Visitor Ticketing</h2>
+        <p>Manage visitor tickets and bookings.</p>
+      </section>
+
+      <section id="petting-area" class="hidden">
+        <h2>Petting/Riding Area</h2>
+        <p>Details of animal interaction and riding experiences.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Zoo Management System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle section visibility
+    function toggleSection(sectionId, button) {
+      const section = document.getElementById(sectionId);
+      const buttons = document.querySelectorAll('.toggle-btn');
+      
+      // Hide all sections
+      document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden'));
+
+      // Show the clicked section
+      section.classList.toggle('hidden');
+      
+      // Change color of clicked button to black and reset others
+      buttons.forEach(btn => btn.style.backgroundColor = '#ccc');
+      button.style.backgroundColor = 'black';
+      button.style.color = 'white';  // Text color changes to white for better visibility
+    }
+
+    // Add an animal
+    const animalForm = document.getElementById('add-animal-form');
+    const animalTable = document.getElementById('animal-table').getElementsByTagName('tbody')[0];
+
+    animalForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('animal-name').value;
+      const cageNumber = document.getElementById('cage-number').value;
+      const species = document.getElementById('animal-species').value;
+
+      // Create new row in table
+      const newRow = animalTable.insertRow();
+      newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${cageNumber}</td>
+        <td>${species}</td>
+        <td>
+          <button onclick="editAnimal(this)">Edit</button>
+          <button onclick="removeAnimal(this)">Remove</button>
+        </td>
+      `;
+
+      // Clear form fields after submission
+      animalForm.reset();
+    });
+
+    // Remove an animal
+    function removeAnimal(button) {
+      const row = button.closest('tr');
+      row.remove();
+    }
+
+    // Edit animal details
+    function editAnimal(button) {
+      const row = button.closest('tr');
+      const name = row.cells[0].textContent;
+      const cageNumber = row.cells[1].textContent;
+      const species = row.cells[2].textContent;
+
+      // Populate the form with the current details
+      document.getElementById('animal-name').value = name;
+      document.getElementById('cage-number').value = cageNumber;
+      document.getElementById('animal-species').value = species;
+
+      // Remove the row
+      removeAnimal(button);
+    }
+  </script>
+</body>
+</html>
