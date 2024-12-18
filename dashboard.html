@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      header {
+        background-color: #666;
+        padding: 30px;
+        font-size: 35px;
+        color: white;
+        background-image: url(./Leopard.avif);
+      }
+
+      article {
+        float: right;
+        padding: 20px;
+        width: 100%;
+        background-color: #f1f1f1;
+        height: auto;
+        text-align: center;
+      }
+
+      section::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Style the footer */
+      footer {
+        background-color: #777;
+        padding: 10px;
+        text-align: center;
+        color: white;
+      }
+
+      @media (max-width: 600px) {
+        article {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .table{
+        padding: 50%;
+      }
+
+      .button {
+        background-color: transparent; /* No background */
+        border: solid 1px; /* No border */
+        color: black; /* Text color */
+        font-size: 16px;
+        cursor: pointer;
+        border-color: red;
+        padding: 20px;
+        margin-bottom: 20px;
+        gap: 20px;
+      }
+
+      .button:hover {
+        text-decoration: underline;
+        color: blue;
+      }
+
+      .admin{
+          text-align: right;
+          margin-left: 79%;
+          background-color: transparent;
+      }
+</style>
+<body>
+        <header>
+            <span>DashBoard</span>
+            <span><button class="admin">Admin</button></span>
+        </header>
+<section>
+    <article>
+      <table>
+        <h4>Zoo</h4>
+        <tr class="table">
+            <button type="button" class="button"> Animal Details </button>
+            <button type="button" class="button"> Number Of Visitor</button>
+            <button type="button" class="button"> Status </button>
+        </tr>
+        <hr>
+        <h4>Me</h4>
+        <tr class="table">
+            <button type="button" class="button"> Present Staffs </button>
+            <button type="button" class="button"> Yesterday Present Staffs</button>
+            <button type="button" class="button"> Salary</button>
+        </tr>
+        <hr>
+        <p>
+            <h4>ECA</h4>
+        </p>
+        <tr>
+            <button type="button" class="button"> Horse Riding </button>
+            <button type="button" class="button"> Elephant Riding</button>
+            <button type="button" class="button"> Foot Massage By Fish</button>
+            <button type="button" class="button">Petting Animals</button>
+        </tr>
+      </table>
+    </article>
+  </section>
+  <footer>
+    <p>
+      Details
+    </p>
+  </footer>
+</body>
+</html>

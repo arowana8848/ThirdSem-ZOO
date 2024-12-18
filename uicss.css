@@ -1,0 +1,117 @@
+.main {
+    background-image: url(./Tiger.jpg);
+    image-resolution: none;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+#first{
+    text-align: center; 
+    color: blue;
+}
+
+.loginPage{
+    background-color: white;
+    padding: 15px 32px;
+    border: blue ;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    text-align: center;
+    height: 150px;
+    width: 300px;
+    margin-left: 30%;
+    margin-right: 50%;
+    margin-top: 05%;
+    border-radius: 10px;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    border: solid 5px ;
+    flex-wrap: nowrap;
+    background: rgba(255, 255, 255, 0.7); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+}
+
+.button{
+    width: 241px;
+    height: 35px;
+    border-radius: 6%;
+    cursor: pointer;
+    background-color: #0866FF;
+    font-size: 21px;
+    color: white;
+}
+
+.email{
+    width: 10vh;
+    height: 28px;
+    border-radius: 6%;
+}
+
+.password{
+    width: 241px;
+    height: 28px;
+    border-radius: 6%;
+    margin-top: 5px;
+}
+
+
+.pass{
+    height: 49%;
+    width: 235px;
+}
+
+#fp{
+    text-align: center;
+    color: blue;
+}
+
+.newAccount{
+    border-radius: 12%;
+    background-color: green;
+    text-align: center;
+    color: white;
+    height: 48px;
+    width: 173px;
+    cursor: pointer;
+}
+
+.button{
+    background: blue;
+}
+.GG{
+    color: black;
+}
+#image{
+    position: absolute;
+    margin-left: 198px;
+    margin-top: 82px;
+}
+#recent{
+    position: absolute;
+    margin-top: 140px;
+    margin-left: 200px;
+    font-size: 35px;
+}
+#pic{
+    color: #333333;
+    position: absolute;
+    margin-top: 190px;
+    margin-left: 200px;
+    font-size: 20px;
+}
+
+.button:hover {
+    background-color: black;
+    opacity: 80%;
+}
+
+#fp:hover{
+    color: yellow;
+    text-decoration: underline;
+}
