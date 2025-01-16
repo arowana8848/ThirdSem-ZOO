@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoo Management Dashboard</title>
+  <link rel="stylesheet" href="visitor.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Zoo Management System </h1>
+  </header>
+
+  <div class="container">
+    <nav class="sidebar">
+      <ul>
+        <li><button class="toggle-btn" onclick="toggleSection('visitor-ticketing', this)">Visitor Ticketing</button></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <!-- Visitor Ticketing Section -->
+      <section id="visitor-ticketing" class="hidden">
+        <h2>Visitor Ticketing</h2>
+        <form id="add-visitor-form">
+          <input type="text" id="visitor-name" placeholder="Visitor Name" required>
+          <input type="text" id="visitor-contact" placeholder="Contact Number" required>
+          <input type="number" id="ticket-price" placeholder="Ticket Price" required>
+          <select id="visitor-gender">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <button type="submit">Add Visitor</button>
+        </form>
+
+        <table id="visitor-table">
+          <thead>
+            <tr>
+              <th>Visitor Name</th>
+              <th>Contact Number</th>
+              <th>Ticket Price</th>
+              <th>Gender</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Visitor data will be dynamically added here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Toggle section visibility
+    function toggleSection(sectionId, button) {
+      const section = document.getElementById(sectionId);
+      const buttons = document.querySelectorAll('.toggle-btn');
+      
+      // Hide all sections
+      document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden'));
+
+      // Show the clicked section
+      section.classList.toggle('hidden');
+      
+      // Change color of clicked button to black and reset others
+      buttons.forEach(btn => btn.style.backgroundColor = '#ccc');
+      button.style.backgroundColor = 'black';
+      button.style.color = 'white';  // Text color changes to white for better visibility
+    }
+
+    // Add a visitor
+    const visitorForm = document.getElementById('add-visitor-form');
+    const visitorTable = document.getElementById('visitor-table').getElementsByTagName('tbody')[0];
+
+    visitorForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('visitor-name').value;
+      const contact = document.getElementById('visitor-contact').value;
+      const ticketPrice = document.getElementById('ticket-price').value;
+      const gender = document.getElementById('visitor-gender').value;
+
+      // Create new row in table
+      const newRow = visitorTable.insertRow();
+      newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${contact}</td>
+        <td>${ticketPrice}</td>
+        <td>${gender}</td>
+        <td>
+          <button onclick="editVisitor(this)">Edit</button>
+          <button onclick="removeVisitor(this)">Remove</button>
+        </td>
+      `;
+
+      // Clear form fields after submission
+      visitorForm.reset();
+    });
+
+    // Remove a visitor
+    function removeVisitor(button) {
+      const row = button.closest('tr');
+      row.remove();
+    }
+
+    // Edit visitor details
+    function editVisitor(button) {
+      const row = button.closest('tr');
+      const name = row.cells[0].textContent;
+      const contact = row.cells[1].textContent;
+      const ticketPrice = row.cells[2].textContent;
+      const gender = row.cells[3].textContent;
+
+      // Populate the form with the current details
+      document.getElementById('visitor-name').value = name;
+      document.getElementById('visitor-contact').value = contact;
+      document.getElementById('ticket-price').value = ticketPrice;
+      document.getElementById('visitor-gender').value = gender;
+
+      // Remove the row
+      removeVisitor(button);
+    }
+  </script>
+</body>
+</html>

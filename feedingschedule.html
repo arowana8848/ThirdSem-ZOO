@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoo Management Dashboard</title>
+  <link rel="stylesheet" href="feeding.css">
+  <script src="feeding.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <h1>Zoo Management System</h1>
+  </header>
+  <div class="container">
+    <nav class="sidebar">
+      <ul>
+        <li><button class="toggle-btn" onclick="toggleSection('feeding-schedule', this)">Feeding Schedule</button></li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <section id="feeding-schedule" class="hidden">
+        <h2>Feeding Schedule</h2>
+        <form id="add-feeding-form">
+          <input type="text" id="cage-number" placeholder="Cage Number" required>
+          <input type="time" id="feeding-time1" required>
+          <input type="time" id="feeding-time2" required>
+          <button type="submit">Add Feeding Times</button>
+        </form>
+        <table id="feeding-table">
+          <thead>
+            <tr>
+              <th>Cage Number</th>
+              <th>Feeding Time 1</th>
+              <th>Feeding Time 2</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Feeding schedule data will be dynamically added here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,108 +1,170 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-  }
-  
-  header {
-    background-color: #87CEEB; /* Sky Blue */
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-bottom: 20px;
-  }
-  
-  footer {
-    background-color: #4B9CD3; /* Darker Blue */
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
-  }
-  
-  /* Container Layout */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+header {
+  background-color: #00539C; /* Darker Blue */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+footer {
+  background-color: #1E3A5F; /* Even Darker Blue */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+/* Container Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+}
+
+/* Sidebar (buttons in horizontal alignment) */
+.sidebar {
+  width: 100%;
+  background-color: #e0e0e0; /* Light Gray for sidebar */
+  padding: 20px;
+  margin-top: 20px;
+  border-top: 3px solid #87CEEB; /* Sky Blue border */
+  text-align: center; /* Center buttons horizontally */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  display: flex;  /* Align buttons horizontally */
+  justify-content: center;
+}
+
+.sidebar ul li {
+  margin: 0 10px;
+}
+
+/* Sidebar (buttons in horizontal alignment) */
+.sidebar ul li button {
+  text-decoration: none;
+  color: #fff; /* Changed text color to white for better contrast */
+  font-weight: bold;
+  padding: 10px 20px;
+  display: inline-block;
+  text-align: center;
+  background-color: #800080; /* Purple for buttons */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.sidebar ul li button:hover {
+  background-color: #4B0082; /* Darker Purple on hover */
+}
+
+/* Main Content */
+.main-content {
+  width: 100%;
+  background-color: #e6f7ff; /* Very light blue background */
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  border-left: 3px solid #87CEEB; /* Sky Blue border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+main section {
+  margin-bottom: 20px;
+}
+
+main section h2 {
+  color: #00539C; /* Darker Blue for headers */
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+/* Hidden sections */
+.hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .container {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 0 20px;
   }
-  
-  /* Sidebar (buttons in horizontal alignment) */
+
   .sidebar {
     width: 100%;
-    background-color: #f0f0f0; /* Light Gray for sidebar */
-    padding: 20px;
-    margin-top: 20px;
-    border-top: 3px solid #87CEEB; /* Sky Blue border */
-    text-align: center; /* Center buttons horizontally */
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    display: flex;  /* Align buttons horizontally */
-    justify-content: center;
-  }
-  
-  .sidebar ul li {
-    margin: 0 10px;
-  }
-  
-  .sidebar ul li button {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 10px 20px;
-    display: inline-block;
-    text-align: center;
-    background-color: #ccc; /* Gray for buttons */
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .sidebar ul li button:hover {
-    background-color: #b3b3b3; /* Darker Gray on hover */
-  }
-  
-  /* Main Content */
-  .main-content {
-    width: 100%;
-    background-color: #f0f8ff; /* Very light blue background */
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 20px;
-    border-left: 3px solid #87CEEB; /* Sky Blue border */
-  }
-  
-  main section {
     margin-bottom: 20px;
   }
-  
-  main section h2 {
-    color: #87CEEB; /* Sky Blue for headers */
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 5px;
-  }
-  
-  /* Hidden sections */
-  .hidden {
-    display: none;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-  
-    .sidebar {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  }
-  
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures borders collapse into a single line */
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px 15px; /* More padding for better spacing */
+  text-align: left;
+  border: 1px solid #ddd; /* Light gray border */
+}
+
+th {
+  background-color: #00539C; /* Darker Blue background for header */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase; /* For a clean, professional look */
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternating row color for better readability */
+}
+
+tr:hover {
+  background-color: #e6f7ff; /* Light blue hover effect */
+}
+
+td {
+  background-color: white; /* White background for table data */
+}
+
+/* Add small rounded corners to the table */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Add slight shadow to the table for depth */
+table {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Print Ticket Flexbox Styles */
+#visitor-ticket, #interaction-ticket {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}

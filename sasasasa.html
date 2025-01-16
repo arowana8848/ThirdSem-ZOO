@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zoo Management Dashboard</title>
   <link rel="stylesheet" href="sasa.css">
+  <script src="sasa.js" defer></script>
 </head>
 <body>
   <header class="header">
-    <h1>Zoo Management System </h1>
+    <h1>Zoo Management System</h1>
   </header>
-
   <div class="container">
     <nav class="sidebar">
       <ul>
@@ -20,50 +20,116 @@
         <li><button class="toggle-btn" onclick="toggleSection('petting-area', this)">Petting/Riding Area</button></li>
       </ul>
     </nav>
-
     <main class="main-content">
+      <!-- Animal Details Section -->
       <section id="animal-details" class="hidden">
         <h2>Animal Details</h2>
-        <p>View and manage details of all animals in the zoo.</p>
+        <form id="add-animal-form">
+          <input type="text" id="animal-name" placeholder="Animal Name" required>
+          <input type="text" id="cage-number" placeholder="Cage Number" required>
+          <input type="text" id="animal-species" placeholder="Species" required>
+          <input type="number" id="animal-count" placeholder="Number of Animals" required>
+          <input type="number" id="male-count" placeholder="Number of Males" required>
+          <input type="number" id="female-count" placeholder="Number of Females" required>
+          <button type="submit">Add Animal</button>
+        </form>
+        <table id="animal-table">
+          <thead>
+            <tr>
+              <th>Animal Name</th>
+              <th>Cage Number</th>
+              <th>Species</th>
+              <th>Number of Animals</th>
+              <th>Number of Males</th>
+              <th>Number of Females</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Animal data will be dynamically added here -->
+          </tbody>
+        </table>
       </section>
 
+      <!-- Feeding Schedule Section -->
       <section id="feeding-schedule" class="hidden">
         <h2>Feeding Schedule</h2>
-        <p>Track feeding times and schedules for animals.</p>
+        <form id="add-feeding-form">
+          <input type="text" id="cage-number" placeholder="Cage Number" required>
+          <input type="time" id="feeding-time1" required>
+          <input type="time" id="feeding-time2" required>
+          <button type="submit">Add Feeding Times</button>
+        </form>
+        <table id="feeding-table">
+          <thead>
+            <tr>
+              <th>Cage Number</th>
+              <th>Feeding Time 1</th>
+              <th>Feeding Time 2</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Feeding schedule data will be dynamically added here -->
+          </tbody>
+        </table>
       </section>
 
+      <!-- Visitor Ticketing Section -->
       <section id="visitor-ticketing" class="hidden">
         <h2>Visitor Ticketing</h2>
-        <p>Manage visitor tickets and bookings.</p>
+        <form id="add-visitor-form">
+          <input type="text" id="visitor-name" placeholder="Visitor Name" required>
+          <input type="text" id="visitor-contact" placeholder="Contact Number" required>
+          <select id="visitor-gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <input type="text" id="ticket-price" placeholder="Ticket Price" required>
+          <button type="submit">Add Visitor</button>
+        </form>
+        <table id="visitor-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Contact</th>
+              <th>Gender</th>
+              <th>Ticket Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Visitor data will be dynamically added here -->
+          </tbody>
+        </table>
       </section>
 
+      <!-- Petting/Riding Area Section -->
       <section id="petting-area" class="hidden">
         <h2>Petting/Riding Area</h2>
-        <p>Details of animal interaction and riding experiences.</p>
+        <form id="add-interaction-form">
+          <input type="text" id="interaction-animal" placeholder="Animal (Horse/Elephant)" required>
+          <input type="text" id="interaction-type" placeholder="Interaction Type (Ride/Petting)" required>
+          <input type="text" id="interaction-ticket-price" placeholder="Ticket Price" required>
+          <button type="submit">Add Interaction</button>
+        </form>
+        <table id="interaction-table">
+          <thead>
+            <tr>
+              <th>Animal</th>
+              <th>Interaction Type</th>
+              <th>Ticket Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Interaction data will be dynamically added here -->
+          </tbody>
+        </table>
       </section>
     </main>
   </div>
-
-  <footer>
-    <p>&copy; 2024 Zoo Management System. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function toggleSection(sectionId, button) {
-      const section = document.getElementById(sectionId);
-      const buttons = document.querySelectorAll('.toggle-btn');
-      
-      // Hide all sections
-      document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden'));
-
-      // Show the clicked section
-      section.classList.toggle('hidden');
-      
-      // Change color of clicked button to black and reset others
-      buttons.forEach(btn => btn.style.backgroundColor = '#ccc');
-      button.style.backgroundColor = 'black';
-      button.style.color = 'white';  // Text color changes to white for better visibility
-    }
-  </script>
 </body>
 </html>
